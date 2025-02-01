@@ -1,0 +1,21 @@
+services:
+  app1:
+    image: vainaviroy/app1
+    ports:
+      - "6000:6000"
+    volumes:
+      - .:/data
+    networks:
+      - mynet
+    depends_on:
+      - app2
+
+  app2:
+    image: vainaviroy/app2
+    volumes:
+      - .:/data
+    networks:
+      - mynet
+
+networks:
+  mynet:
